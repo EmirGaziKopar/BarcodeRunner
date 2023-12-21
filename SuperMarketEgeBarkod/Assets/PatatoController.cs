@@ -13,6 +13,12 @@ public class PatatoController : MonoBehaviour
     Rigidbody2D rigidbody2D;
     public float speed;
     public float horizontalSpeed;
+    public AudioSource jump;
+
+    public Transform platformTransform;
+
+    public bool isGrounded;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,15 +52,21 @@ public class PatatoController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space))
         {
-            
-            if (counter < 1)
+            if (isGroundedControl.isGrounded)
             {
-                counter++;
-                for (int i = 0; i < Joints.Count; i++)
+                if (counter < 1)
                 {
-                    Joints[i].GetComponent<Rigidbody2D>().velocity = new Vector3(0, speed * Time.deltaTime, 0);
+                    jump.Play();
+                    counter++;
+                    for (int i = 0; i < Joints.Count; i++)
+                    {
+                        Joints[i].GetComponent<Rigidbody2D>().velocity = new Vector3(0, speed * Time.deltaTime, 0);
+                    }
+                    isGroundedControl.isGrounded = false;
                 }
+
             }
+            
             
         }
         else
@@ -95,6 +107,10 @@ public class PatatoController : MonoBehaviour
             isSpace = false;
         }
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGrounded = true; //Sadece isGrounded true ise atlamalý
+    }
+   
 }
 
