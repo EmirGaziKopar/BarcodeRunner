@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasketController : MonoBehaviour
 {
     public static bool lvlComplated;
     public float Timer;
     public float requiredTimer;
-
-
+    public int currentLevel;
+    
 
     private void OnTriggerStay2D(Collider2D collision)
     {      
@@ -21,6 +22,7 @@ public class BasketController : MonoBehaviour
             {
                 lvlComplated = true;
                 Debug.Log("Level Baþarýlý");
+                SceneManager.LoadScene(currentLevel + 1, LoadSceneMode.Single);
             }
         }
     }
