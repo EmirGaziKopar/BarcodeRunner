@@ -15958,6 +15958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timer: 0
   requiredTimer: 1
+  currentLevel: 3
 --- !u!61 &959451193
 BoxCollider2D:
   m_ObjectHideFlags: 0
