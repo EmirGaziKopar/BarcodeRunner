@@ -9,11 +9,18 @@ public class BasketController : MonoBehaviour
     public float Timer;
     public float requiredTimer;
     public int currentLevel;
-    
+
+
+    public void CompleteLevel(int levelNumber)
+    {
+        PlayerPrefs.SetInt("LevelCompleted", levelNumber);
+        PlayerPrefs.Save(); // Deðiþiklikleri kaydet
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {      
         //Layer ayarlamalarý yapýlmýþ mý bak ? 
+
         if(collision.gameObject.tag == "Patato" && ColliderControl.CollisionDetected) //Eðer saðlýklý çalýþmazsa enter ile giriþ ve çýkýþ yaptýðý aralýktaki deðeri bul
         {
             Timer += Time.deltaTime;
@@ -22,9 +29,23 @@ public class BasketController : MonoBehaviour
             {
                 lvlComplated = true;
                 Debug.Log("Level Baþarýlý");
-                SceneManager.LoadScene(currentLevel + 1, LoadSceneMode.Single);
+                CompleteLevel(currentLevel);
+                SceneManager.LoadScene(currentLevel+1, LoadSceneMode.Single);
+                
             }
         }
+        /*
+        else
+        {
+            Timer += Time.deltaTime;
+            if (Timer > requiredTimer)
+            {
+                lvlComplated = true;
+                Debug.Log("Level Baþarýsýz");
+                SceneManager.LoadScene(currentLevel, LoadSceneMode.Single);
+            }
+        }
+        */
     }
     // Start is called before the first frame update
     void Start()
