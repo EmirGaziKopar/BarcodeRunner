@@ -23,6 +23,7 @@ public class BasketController : MonoBehaviour
 
         if(collision.gameObject.tag == "Patato" && ColliderControl.CollisionDetected) //Eðer saðlýklý çalýþmazsa enter ile giriþ ve çýkýþ yaptýðý aralýktaki deðeri bul
         {
+            isGroundedControl.collidedOnBasket = false; //Eðer trigger kýsmýna kadar geldiyse basket deðeri false kalmalý
             Timer += Time.deltaTime;
             Debug.Log("Timer : "+Timer);
             if (Timer > requiredTimer)
