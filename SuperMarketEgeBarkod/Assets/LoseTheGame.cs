@@ -16,7 +16,7 @@ public class LoseTheGame : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag != "Bottle")
+        if(collision.gameObject.tag == "Patato")
         {
             SceneManager.LoadScene(currentScene, LoadSceneMode.Single);
         }

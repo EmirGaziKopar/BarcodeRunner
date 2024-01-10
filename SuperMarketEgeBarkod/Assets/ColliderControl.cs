@@ -8,7 +8,11 @@ public class ColliderControl : MonoBehaviour
     public AudioSource audioSource;
     public AudioSource diit;
     public GameObject diitAnim; //GameObjeyi setActive true yapýnca animasyon otomatik olarak baþlayacak
-    
+
+    private void Start()
+    {
+        CollisionDetected = false;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Patato")
