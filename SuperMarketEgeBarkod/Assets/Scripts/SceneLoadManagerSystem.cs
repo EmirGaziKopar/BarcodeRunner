@@ -22,6 +22,16 @@ public class SceneLoadManagerSystem : MonoBehaviour
     {
         SceneManager.LoadScene(3, LoadSceneMode.Single);
     }
+
+    public void ReturnLevelPanel()
+    {
+        SceneManager.LoadScene(4, LoadSceneMode.Single);
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(5, LoadSceneMode.Single);
+    } 
     // Start is called before the first frame update
     void Start()
     {

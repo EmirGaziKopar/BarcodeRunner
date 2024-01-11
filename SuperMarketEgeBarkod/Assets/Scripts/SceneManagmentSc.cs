@@ -9,7 +9,7 @@ public class SceneManagmentSc : MonoBehaviour
 
     public void PlayButton()
     {
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(4, LoadSceneMode.Single);
     }
     public void CreditsButton()
     {
