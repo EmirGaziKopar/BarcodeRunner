@@ -12,6 +12,9 @@ public class SaveSystem : MonoBehaviour
 
     int numberOfLevel;
     Color colorGray;
+    
+    
+
     public int LoadNumber()
     {
         // Eðer "SavedNumber" anahtarýna ait bir deðer yoksa, varsayýlan olarak 0 döndürür
@@ -24,8 +27,8 @@ public class SaveSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
 
+        //PlayerPrefs.DeleteAll();
         numberOfLevel = LoadNumber();
         Debug.Log("Kacinci : " + numberOfLevel);
         if (LoadNumber() == 0)
